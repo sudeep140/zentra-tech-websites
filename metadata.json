@@ -1,0 +1,6 @@
+{
+  "name": "ZENTRA - Next-Gen Digital Agency & 3D Web Studio",
+  "description": "Zentra creates stunning websites, immersive 3D experiences, brand identities, and intelligent automation for forward-thinking businesses.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
