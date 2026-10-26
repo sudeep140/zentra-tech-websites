@@ -221,6 +221,16 @@ export const Hero3DScene: React.FC = () => {
         cancelAnimationFrame(animationFrameId);
         window.removeEventListener('mousemove', handleMouseMove);
         window.removeEventListener('resize', handleResize);
+        outerGeo.dispose();
+        outerMat.dispose();
+        innerGeo.dispose();
+        innerMat.dispose();
+        coreGeo.dispose();
+        coreMat.dispose();
+        rockGeo.dispose();
+        rockMat.dispose();
+        particleGeo.dispose();
+        particleMat.dispose();
         if (renderer && renderer.domElement && mount.contains(renderer.domElement)) {
           mount.removeChild(renderer.domElement);
           renderer.dispose();

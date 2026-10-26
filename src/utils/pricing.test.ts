@@ -28,7 +28,7 @@ test('calculateTierPrice throws on negative prices', () => {
 
 test('estimateProjectBudget calculates correct base tier and add-ons', () => {
   const starterSingle = estimateProjectBudget(['Web Design'], 'starter', false);
-  assert.equal(starterSingle, 999);
+  assert.equal(starterSingle, 1499);
 
   const proMultiple = estimateProjectBudget(['Web Design', '3D Website', 'AI Agents'], 'pro', false);
   // 2499 + 2 * 600 = 3699

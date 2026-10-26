@@ -2,6 +2,7 @@ import React from 'react';
 import { Lightbulb, Users, Award, ShieldCheck, Twitter, Linkedin, Github, ArrowUpRight } from 'lucide-react';
 import { Mission3DScene } from './Mission3DScene.js';
 import { TEAM_MEMBERS } from '../data/mockData.js';
+import { getAssetUrl, handleImageFallback } from '../utils/assets.js';
 
 interface AboutViewProps {
   onOpenProjectModal: () => void;
@@ -33,13 +34,16 @@ From immersive 3D websites and premium digital experiences to intelligent AI-pow
         {/* Studio interior banner shot */}
         <div className="mt-12 rounded-2xl overflow-hidden border border-white/10 aspect-21/9 relative">
           <img
-            src="public/assets/about.png"
+            src="/assets/about.png"
             alt="Zentra Design Studio"
             className="w-full h-full object-cover"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src = '/assets/zentra-tech.png';
+            }}
           />
-          <div className="absolute inset-0 bg-linear-to-t from-[#05070f] via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05070f] via-transparent to-transparent opacity-80" />
           <div className="absolute bottom-6 left-6 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-xs text-slate-200">
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-cyan-400" />
             Zentra Global Creative Studio
           </div>
         </div>
@@ -70,11 +74,11 @@ From immersive 3D websites and premium digital experiences to intelligent AI-pow
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/8">
               <div>
-                <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">5+</div>
+                <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">3+</div>
                 <div className="text-xs sm:text-sm text-slate-400 mt-1">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">50+</div>
+                <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">15+</div>
                 <div className="text-xs sm:text-sm text-slate-400 mt-1">Projects Delivered</div>
               </div>
               <div>
@@ -163,8 +167,9 @@ From immersive 3D websites and premium digital experiences to intelligent AI-pow
             >
               <div className="aspect-[4/5] overflow-hidden bg-slate-900 relative">
                 <img
-                  src={member.avatar}
+                  src={getAssetUrl(member.avatar)}
                   alt={member.name}
+                  onError={(e) => handleImageFallback(e, '/assets/team/sudeep-founder.jpg')}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090e1e] via-transparent to-transparent opacity-90" />

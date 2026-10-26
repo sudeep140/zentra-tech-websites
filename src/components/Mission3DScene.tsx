@@ -77,6 +77,8 @@ export const Mission3DScene: React.FC = () => {
       return () => {
         cancelAnimationFrame(animationFrameId);
         window.removeEventListener('mousemove', handleMouseMove);
+        geometry.dispose();
+        material.dispose();
         if (renderer && renderer.domElement && mount.contains(renderer.domElement)) {
           mount.removeChild(renderer.domElement);
           renderer.dispose();

@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, ExternalLink, Calendar, User, Tag, Sparkles, Award } from 'lucide-react';
 import { ProjectItem } from '../types/index.js';
+import { getAssetUrl, handleImageFallback } from '../utils/assets.js';
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -15,21 +16,28 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 }) => {
   if (!project) return null;
 
+  const resolvedLiveUrl = project.liveUrl
+    ? project.liveUrl.startsWith('http')
+      ? project.liveUrl
+      : `https://${project.liveUrl}`
+    : null;
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
       <div className="max-w-3xl w-full rounded-3xl bg-[#080d1d] border border-cyan-500/30 overflow-hidden shadow-2xl space-y-6 my-8">
         {/* Banner with close button */}
         <div className="relative aspect-[16/9] w-full bg-slate-900 overflow-hidden">
           <img
-            src={project.image}
+            src={getAssetUrl(project.image)}
             alt={project.title}
+            onError={(e) => handleImageFallback(e)}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#080d1d] via-transparent to-black/40" />
           
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 transition-all"
+            className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-md border border-white/20 transition-all cursor-pointer"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -107,18 +115,26 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 onClose();
                 onOpenInquiry(project.title);
               }}
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/25 hover:scale-105 transition-transform cursor-pointer"
             >
               Request Similar Project
             </button>
 
-            <button
-              onClick={() => alert(`Opening live demo for ${project.title}`)}
-              className="px-5 py-3 rounded-full bg-white/[0.05] hover:bg-white/10 text-white text-xs font-semibold border border-white/10 inline-flex items-center gap-2"
-            >
-              <span>Visit Live Experience</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </button>
+            {resolvedLiveUrl ? (
+              <a
+                href={resolvedLiveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-full bg-white/[0.05] hover:bg-white/10 text-white text-xs font-semibold border border-white/10 inline-flex items-center gap-2 transition-colors"
+              >
+                <span>Visit Live Experience</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            ) : (
+              <span className="text-xs text-slate-500 italic">
+                Proprietary enterprise build
+              </span>
+            )}
           </div>
         </div>
       </div>

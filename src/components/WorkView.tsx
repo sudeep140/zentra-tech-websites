@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Sparkles, Filter } from 'lucide-react';
 import { ProjectItem } from '../types/index.js';
+import { getAssetUrl, handleImageFallback } from '../utils/assets.js';
 
 interface WorkViewProps {
   projects: ProjectItem[];
@@ -55,7 +56,7 @@ export const WorkView: React.FC<WorkViewProps> = ({ projects, onSelectProject, o
         </span>
       </div>
 
-      {/* Projects Grid: 2-column large cards matching top right panel */}
+      {/* Projects Grid: 2-column large cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredProjects.map((project) => (
           <div
@@ -66,8 +67,9 @@ export const WorkView: React.FC<WorkViewProps> = ({ projects, onSelectProject, o
             {/* Image Banner */}
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
               <img
-                src={project.image}
+                src={getAssetUrl(project.image)}
                 alt={project.title}
+                onError={(e) => handleImageFallback(e)}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#090e1e] via-[#090e1e]/20 to-transparent" />
@@ -79,7 +81,7 @@ export const WorkView: React.FC<WorkViewProps> = ({ projects, onSelectProject, o
                 </span>
                 {project.featured && (
                   <span className="px-3 py-1 rounded-full bg-cyan-950/80 backdrop-blur-md border border-cyan-500/40 text-xs font-semibold text-cyan-300 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                     Featured
                   </span>
                 )}
@@ -132,7 +134,7 @@ export const WorkView: React.FC<WorkViewProps> = ({ projects, onSelectProject, o
         </div>
         <button
           onClick={onOpenProjectModal}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/20 whitespace-nowrap"
+          className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-cyan-500/20 whitespace-nowrap hover:scale-105 transition-transform"
         >
           Start Your Project
         </button>

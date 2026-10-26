@@ -1,0 +1,62 @@
+[
+  {
+    "id": "lead-1793036680262-3uxk",
+    "name": "Aarav Sharma",
+    "email": "aarav@enterprise.com",
+    "service": "3D Websites & Experiences",
+    "message": "We need a 3D product visualizer for our new EV launch.",
+    "budget": "$10,000 - $25,000",
+    "status": "New",
+    "date": "2026-10-26"
+  },
+  {
+    "id": "lead-1",
+    "name": "Rahul Shrestha",
+    "email": "rahulshrestha@gmail.com",
+    "service": "Web Design & Development",
+    "message": "Looking to overhaul our e-commerce storefront with high performance 3D product previews.",
+    "status": "Contacted",
+    "date": "2025-10-21",
+    "budget": "$2,000 - $5,000"
+  },
+  {
+    "id": "lead-2",
+    "name": "Sita Adhikari",
+    "email": "sita@example.com",
+    "service": "3D Websites & Experiences",
+    "message": "We need an immersive virtual gallery for our autumn digital art exhibition.",
+    "status": "Contacted",
+    "date": "2025-10-20",
+    "budget": "$10,000 - $25,000"
+  },
+  {
+    "id": "lead-3",
+    "name": "Bikash Thapa",
+    "email": "bikash@example.com",
+    "service": "AI Agents & Automation",
+    "message": "Interested in autonomous customer support workflows integrated with our existing CRM.",
+    "status": "In Progress",
+    "date": "2025-10-19",
+    "budget": "$15,000+"
+  },
+  {
+    "id": "lead-4",
+    "name": "Anisha Karki",
+    "email": "anisha@example.com",
+    "service": "Brand Identity & Visuals",
+    "message": "Complete corporate rebranding for our fintech startup ahead of Series A round.",
+    "status": "Closed",
+    "date": "2025-10-18",
+    "budget": "$8,000"
+  },
+  {
+    "id": "lead-5",
+    "name": "Suman Basnet",
+    "email": "suman@example.com",
+    "service": "Custom Web Applications",
+    "message": "Need a multi-tenant client portal with real-time reporting and role permissions.",
+    "status": "New",
+    "date": "2025-10-22",
+    "budget": "$12,000 - $20,000"
+  }
+]

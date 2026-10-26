@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, ChevronDown, Sparkles, Monitor, Layers, Palet
 import { Hero3DScene } from './Hero3DScene.js';
 import { SERVICES_DATA } from '../data/mockData.js';
 import { ProjectItem, ServiceItem } from '../types/index.js';
+import { getAssetUrl, handleImageFallback } from '../utils/assets.js';
 
 interface HomeViewProps {
   projects: ProjectItem[];
@@ -56,7 +57,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             <div className="lg:col-span-7 space-y-8 z-10">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-semibold tracking-widest uppercase shadow-sm shadow-cyan-500/20">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
                 DIGITAL AGENCY
               </div>
 
@@ -95,11 +96,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Stats Row */}
               <div className="pt-8 grid grid-cols-3 gap-6 max-w-lg border-t border-white/[0.08]">
                 <div>
-                  <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">5+</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">3+</div>
                   <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">50+</div>
+                  <div className="text-3xl sm:text-4xl font-extrabold font-display text-white">15+</div>
                   <div className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">Projects Delivered</div>
                 </div>
                 <div>
@@ -286,15 +287,16 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Thumbnail Container */}
               <div className="relative aspect-[16/11] overflow-hidden bg-slate-900">
                 <img
-                  src={project.image}
+                  src={getAssetUrl(project.image)}
                   alt={project.title}
+                  onError={(e) => handleImageFallback(e)}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090e1e] via-transparent to-transparent opacity-80" />
                 
                 {/* Live Badge */}
                 <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-semibold text-cyan-300 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                   Live
                 </div>
               </div>

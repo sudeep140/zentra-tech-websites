@@ -12,6 +12,7 @@ import { ServicesView } from './components/ServicesView.js';
 import { InsightsView } from './components/InsightsView.js';
 import { ContactView } from './components/ContactView.js';
 import { DashboardView } from './components/DashboardView.js';
+import { PricingView } from './components/PricingView.js';
 import { ProjectModal } from './components/ProjectModal.js';
 import { StartProjectModal } from './components/StartProjectModal.js';
 import { Footer } from './components/Footer.js';
@@ -23,6 +24,7 @@ import {
   saveDashboardLeads,
   saveDashboardProjects,
 } from './utils/dashboardStorage.js';
+import { fetchProjectsApi } from './utils/api.js';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -32,6 +34,19 @@ export default function App() {
   const [isStartProjectOpen, setIsStartProjectOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState<string>('');
   const [notification, setNotification] = useState<string | null>(null);
+
+  // Sync projects from authoritative backend API
+  useEffect(() => {
+    fetchProjectsApi()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setProjects(data);
+        }
+      })
+      .catch((err) => {
+        console.warn('Backend API project sync, using local cache:', err);
+      });
+  }, []);
 
   useEffect(() => {
     saveDashboardLeads(leads);
@@ -161,6 +176,16 @@ export default function App() {
             )}
 
             {activeTab === 'insights' && <InsightsView />}
+
+            {activeTab === 'pricing' && (
+              <PricingView
+                onSelectPlan={(planName, budget) => {
+                  setPreselectedService(`Plan: ${planName} (${budget})`);
+                  setIsStartProjectOpen(true);
+                }}
+                onNavigateToContact={() => setActiveTab('contact')}
+              />
+            )}
 
             {activeTab === 'contact' && (
               <ContactView

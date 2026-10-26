@@ -1,0 +1,184 @@
+[
+  {
+    "id": "heritages-roofing",
+    "title": "Heritages Roofing",
+    "category": "3D",
+    "subtitle": "Website & 3D Experience built for performance.",
+    "description": "An ethereal WebGL showcase for a quantum computing research laboratory, featuring real-time particle simulations and interactive dark mode aesthetics.",
+    "tags": [
+      "Three.js",
+      "React",
+      "GLSL Shaders",
+      "Web Audio"
+    ],
+    "image": "/assets/heritages-roofing.png",
+    "featured": true,
+    "liveUrl": "https://heritages-roofing.vercel.app",
+    "metrics": [
+      {
+        "label": "Page Speed",
+        "value": "99/100"
+      },
+      {
+        "label": "Session Duration",
+        "value": "+340%"
+      },
+      {
+        "label": "Awards",
+        "value": "Awwwards Site of the Day"
+      }
+    ],
+    "client": "Nova Labs Quantum Inc.",
+    "year": "2025",
+    "gallery": [
+      "/assets/heritages-roofing.png"
+    ]
+  },
+  {
+    "id": "lumina-engine",
+    "title": "Lumina Engine",
+    "category": "Branding",
+    "subtitle": "Branding & Website for digital creators.",
+    "description": "End-to-end brand identity system, 3D token visualizations, and creator marketplace platform with bespoke typographic design.",
+    "tags": [
+      "Branding",
+      "Motion Design",
+      "Next.js",
+      "Tailwind"
+    ],
+    "image": "/assets/lumian.png",
+    "featured": true,
+    "liveUrl": "https://lumina-engine12.vercel.app",
+    "metrics": [
+      {
+        "label": "Conversion Lift",
+        "value": "+42%"
+      },
+      {
+        "label": "Signups",
+        "value": "180,000+"
+      }
+    ],
+    "client": "PixelForge Studios",
+    "year": "2025",
+    "gallery": [
+      "/assets/lumian.png"
+    ]
+  },
+  {
+    "id": "virtualzentra-showcase",
+    "title": "Virtualzentra 3D Showcase",
+    "category": "Apps",
+    "subtitle": "Web Application & Development for virtual offices.",
+    "description": "Enterprise intelligence suite allowing operators to configure, monitor, and deploy autonomous LLM agents with real-time telemetries.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Data Viz",
+      "REST & WS"
+    ],
+    "image": "/assets/virtual-zentra-tech.jpeg",
+    "featured": true,
+    "liveUrl": "https://3-d-virtual-office-zentra-tech.vercel.app",
+    "metrics": [
+      {
+        "label": "Latency",
+        "value": "<45ms"
+      },
+      {
+        "label": "Active Orgs",
+        "value": "850+"
+      }
+    ],
+    "client": "Orion Systems Corp",
+    "year": "2025",
+    "gallery": [
+      "/assets/virtual-zentra-tech.jpeg"
+    ]
+  },
+  {
+    "id": "velora",
+    "title": "Velora",
+    "category": "3D",
+    "subtitle": "3D Website & Immersive Spatial Experience.",
+    "description": "Luxury automotive 3D configurator featuring dynamic lighting, material customization, and photorealistic paint shaders in real time.",
+    "tags": [
+      "Three.js",
+      "PBR Shaders",
+      "WebGL",
+      "Tailwind"
+    ],
+    "image": "/assets/velora-motors.png",
+    "featured": true,
+    "liveUrl": "https://velora.example.com",
+    "metrics": [
+      {
+        "label": "Engagement Rate",
+        "value": "86%"
+      },
+      {
+        "label": "Configured Units",
+        "value": "12,400"
+      }
+    ],
+    "client": "Velora Motors",
+    "year": "2024",
+    "gallery": [
+      "/assets/velora-motors.png"
+    ]
+  },
+  {
+    "id": "summit-creative",
+    "title": "Summit Creative",
+    "category": "Websites",
+    "subtitle": "Branding & Website for venture studio.",
+    "description": "High-impact editorial portfolio website for a tier-1 venture capital studio with custom micro-interactions and dark mode typography.",
+    "tags": [
+      "React",
+      "Motion",
+      "Vite",
+      "Tailwind"
+    ],
+    "image": "/assets/summit-creative.png",
+    "featured": false,
+    "liveUrl": "https://summitcreative.example.com",
+    "metrics": [
+      {
+        "label": "Inbound Pitch Deck",
+        "value": "+185%"
+      }
+    ],
+    "client": "Summit Partners",
+    "year": "2024",
+    "gallery": [
+      "/assets/summit-creative.png"
+    ]
+  },
+  {
+    "id": "flowly",
+    "title": "Flowly",
+    "category": "Apps",
+    "subtitle": "Web Application for modern workflows.",
+    "description": "Collaborative product management canvas designed with keyboard-first ergonomics, live presence cursors, and slick dark glass aesthetics.",
+    "tags": [
+      "Full Stack",
+      "WebSockets",
+      "Canvas API",
+      "TypeScript"
+    ],
+    "image": "/assets/flowly.png",
+    "featured": false,
+    "liveUrl": "https://flowly.example.com",
+    "metrics": [
+      {
+        "label": "Daily Active Users",
+        "value": "45,000+"
+      }
+    ],
+    "client": "Flowly Inc.",
+    "year": "2024",
+    "gallery": [
+      "/assets/flowly.png"
+    ]
+  }
+]

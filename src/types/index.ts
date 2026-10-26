@@ -20,6 +20,8 @@ export interface ProjectItem {
   metrics?: { label: string; value: string }[];
   client?: string;
   year?: string;
+  gallery?: string[];
+  model3dUrl?: string;
 }
 
 export interface TeamMember {
@@ -60,17 +62,21 @@ export interface LeadItem {
   status: LeadStatus;
   date: string;
   budget?: string;
+  timeline?: string;
+  notes?: string;
 }
 
 export interface ArticleItem {
   id: string;
   title: string;
   excerpt: string;
+  content?: string;
   category: string;
   readTime: string;
   date: string;
   author: string;
   image: string;
+  published?: boolean;
 }
 
 export interface DashboardMetrics {
@@ -82,4 +88,20 @@ export interface DashboardMetrics {
   articlesTrend: number;
   totalRevenue: number;
   revenueTrend: number;
+}
+
+export interface AgencySettings {
+  agencyName: string;
+  tagline: string;
+  contactEmail: string;
+  contactPhone: string;
+  officeLocation: string;
+  consultationTurnaround: string;
+  primaryTimezone: string;
+}
+
+export interface AdminUser {
+  id: string;
+  email: string;
+  role: 'owner' | 'admin';
 }
